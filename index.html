@@ -6,7 +6,37 @@
     <title>MeShop.</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
-  <body></body>
+  <body>
+    <navbar class="navbar">
+      <div class="left"><a href="./index.html">MeShop</a></div>
+      <div class="right">
+        <button id="home" class="nav-btn-menu">Home</button>
+        <button id="login" class="nav-btn-menu">Login</button>
+        <button id="signup" class="nav-btn-menu">Signup</button>
+        <button id="mycart" class="nav-btn-menu">MyCart</button>
+        <button id="profile" class="nav-btn-menu">Profile</button>
+      </div>
+    </navbar>
+
+    <section class="shop-access">
+      <div class="login-signup">
+        <div class="shop-title">MeShop</div>
+        <div class="shop-tagline">
+          <p>Your First Shop built on HTML, CSS, and JavaScript</p>
+        </div>
+        <div class="login-signup-btn">
+          <button id="login-btn" class="login-signup-access login-access">Login</button>
+          <button id="signup-btn" class="login-signup-access signup-access">Signup</button>
+        </div>
+      </div>
+      <div class="landing-page-picture">
+        <img src="./landingPagePic.png" alt="landing page image">
+      </div>
+    </section>
+
+
+    <script src="./script.js"></script>
+  </body>
 </html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="signupstyle.css">
+</head>
+<body>
+
+    <navbar class="navbar">
+        <div class="left"><a href="../index.html">MeShop</a></div>
+        <div class="right">
+          <button id="home" class="nav-btn-menu">Home</button>
+          <button id="login" class="nav-btn-menu">Login</button>
+          <button id="signup" class="nav-btn-menu">Signup</button>
+          <button id="mycart" class="nav-btn-menu">MyCart</button>
+        </div>
+    </navbar>
+
+    <!-- ------------------signup section-------------------- -->
+    <section class="signup">
+      <div class="signup-title">Signup</div>
+      <form id="signup-form" class="signup-form">
+        <div class="form-field first-name">
+          <input type="text" name="fname" id="fname" placeholder="First Name">
+        </div>
+        <div class="form-field last-name">
+          <input type="text" name="lname" id="lname" placeholder="Last Name">
+        </div>
+        <div class="form-field email">
+          <input type="email" name="email" id="email" placeholder="Email">
+        </div>
+        <div class="form-field password">
+          <input type="password" name="password" id="password" placeholder="Password">
+        </div>
+        <div class="form-field confirm-password">
+          <input type="password" name="confirmPassword" id="confirm-password" placeholder="Confirm Password">
+        </div>
+        <button id="signup-form-submit-btn" class="signup-form-submit-btn" type="button">Signup</button>
+      </form>
+    </section>
+
+    <script src="./signupscript.js"></script>
+</body>
+</html>

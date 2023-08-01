@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=3, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="loginstyle.css">
+</head>
+<body>
+
+    <navbar class="navbar">
+        <div class="left"><a href="../index.html">MeShop</a></div>
+        <div class="right">
+          <button id="home" class="nav-btn-menu">Home</button>
+          <button id="login" class="nav-btn-menu">Login</button>
+          <button id="signup" class="nav-btn-menu">Signup</button>
+          <button id="mycart" class="nav-btn-menu">MyCart</button>
+        </div>
+    </navbar>
+
+    <!-----------------------------------Navbar End--------------------------------------->
+
+    <section class="login-page">
+        <div class="login-title">Login</div>
+        <form id="login-form" class="login-form">
+            <div class="form-field email">
+              <input type="email" name="email" id="email" placeholder="Email">
+            </div>
+            <div class="form-field password">
+              <input type="password" name="password" id="password" placeholder="Password">
+            </div>
+            <button id="login-form-submit-btn" class="login-form-submit-btn" type="button">Login</button>
+        </form>
+    </section>
+
+    <script src="./loginscript.js"></script>
+</body>
+</html>

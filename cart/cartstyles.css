@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar{
+    width: 100%;
+    height: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 0px 20px;
+    /* margin-bottom: 30px; */
+}
+
+.left{
+    font-size: 2em;
+}
+
+.left a{
+    text-decoration: none;
+    color: white;
+}
+
+.right{
+    width: 30%;
+    height: 4em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.nav-btn-menu{
+    width: 20%;
+    height: 3em;
+    box-sizing: border-box;
+    font-size: 1em;
+    outline: none;
+    border: none;
+    background: black;
+    color: white;
+    cursor: pointer;
+}
+
+/* -------------------------------- Navbar end----------------------------------------------------- */
+
+
+.shopping-cart{
+    width: 100%;
+    height: 87vh;
+    display: flex;
+    gap: 1em;  
+    padding: 2em;     
+}
+
+.shopping-cart .my-cart{
+    width: 70%;
+    height: 87vh;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.shopping-cart-title{
+    font-size: 2em;
+    font-weight: 700;
+    line-height: 36.31px;
+    text-align: center;
+}
+
+.items{
+    display: grid;
+    grid-template-columns: repeat(4, 24%);
+    gap: 1em;
+    overflow-y: auto;
+    padding-bottom: 1.5em;
+    padding-left: 3em;
+    justify-content: end;
+}
+
+.items::-webkit-scrollbar{
+    display: none;
+}
+
+.items .item {
+    border: 1px solid black;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+.items .item img {
+    max-width: 100%;
+    height: 15em;
+}
+
+.item .info{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.item .info .row{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    padding-left: 0.5em;
+}
+
+.info .remove-from-cart{
+    width: 100%;
+    border: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+/* *********************** My Cart Section Styling ********************************* */
+
+.shopping-cart .checkout{
+    width: 27%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    padding: 2em 0.5em;
+    overflow-y: auto;
+}
+
+.checkout::-webkit-scrollbar{
+    display: none;
+}
+
+.checkout .checkout-title{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.2em;
+    padding: 0.5em 0em;
+}
+
+.checkout .items-list-price{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    border-bottom: 1px solid white;
+    padding: 1em;
+}
+
+.checkout .items-list-price .item-price{
+    display: flex;
+    justify-content: space-between;
+}
+
+.checkout .item-total-price{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    border-bottom: 1px solid white;
+}
+
+.checkout .click-to-checkout-btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2em 0em;
+}
+
+.checkout .checkout-btn{
+    width: 90%;
+    padding: 10px;
+    border: 1px solid #000000;
+    color: black;
+    background-color: white;
+    border-radius: 1px;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+    border-radius: 1px;
+}

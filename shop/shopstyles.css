@@ -38,9 +38,11 @@ nav {
   justify-content: space-between;
   align-items: center;
   color: white;
-  position: sticky;
+  position: fixed;
   z-index: 100;
   top: 0;
+  right: 0;
+  left: 0;
 
   background-color: black;
   border-bottom: 1px solid white;
@@ -57,25 +59,27 @@ nav .nav-items a {
   margin: 0 1rem;
 }
 
+/* ************************************ Navbar Ended ******************************************** */
+
 main {
-  display: flex;
   height: 100vh;
+  margin-top: 60px;
 }
 
 main aside {
-  flex: 0.2;
   background-color: black;
   color: white;
-  height: 100vh;
+  height: 91vh;
   position: fixed;
-  padding-top: 1rem;
-  width: 11rem;
+  width: 12rem;
+  overflow-y: scroll;
+  padding: 1em 0em;
 }
 
 main main-content {
   display: block;
-  width: 100%;
-  margin-left: 11rem;
+  width: 85%;
+  margin-left: 12rem;
 }
 
 aside section {
@@ -101,6 +105,28 @@ aside section label {
   cursor: pointer;
   margin-left: 0.25rem;
 }
+
+.price-range{
+  border-bottom: none;
+}
+
+.apply-to-filter{
+  width: 80%;
+  padding: 10px;
+  border: 1px solid white;
+  color: white;
+  background-color: #000000;
+  border-radius: 1px;
+  outline: none;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+aside::-webkit-scrollbar{
+  display: none;
+}
+
+/* ************************** Aside Styling Ended *************************************** */
 
 main-content {
   padding: 1rem;
@@ -153,10 +179,13 @@ main-content .items {
 main-content .items .item {
   border: 1px solid black;
   width: 30%;
+  display: flex;
+  flex-direction: column;
 }
 
 main-content .items .item img {
   max-width: 100%;
+  height: 15em;
 }
 
 main-content .items .item .row {
@@ -170,7 +199,6 @@ main-content .items .item .info {
 
 main-content .items .item button {
   width: 100%;
-  border-radius: none;
   border: none;
   padding: 1rem;
   font-size: 1rem;

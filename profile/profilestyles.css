@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+.navbar{
+    width: 100%;
+    height: 4em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 0px 20px;
+    /* margin-bottom: 30px; */
+}
+
+.left{
+    font-size: 2em;
+}
+
+.left a{
+    text-decoration: none;
+    color: white;
+}
+
+.nav-items a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+}
+
+/* -------------------------------- Navbar end----------------------------------------------------- */
+
+.profile-page{
+    width: 100%;
+    height: 110vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    padding: 30px;
+}
+
+.basic-info,.password-change{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+    /* height: 35vh; */
+}
+
+.profile-title,.edit-password-title{
+    font-size: 35px;
+    font-weight: 700;
+    line-height: 36.31px;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-form, .edit-form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.form-field > input{
+    width: 100%;
+    border-radius: 1px;
+    border: 1px solid #000000;
+    padding: 10px;
+    outline: none;
+}
+
+.saveInfo-form-submit-btn, .edit-password-form-submit-btn, .logout-btn{
+    width: 10%;
+    padding: 10px;
+    border: 1px solid #000000;
+    color: white;
+    background-color: #000000;
+    border-radius: 1px;
+    outline: none;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.change-password{
+    width: 15%;
+}

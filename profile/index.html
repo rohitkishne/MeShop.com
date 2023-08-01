@@ -2,7 +2,16 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <![endif]-->
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+
+
 <html>
   <head>
     <meta charset="utf-8" />
@@ -10,16 +19,51 @@
     <title>Profile</title>
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="./profilestyles.css" />
   </head>
   <body>
-    <!--[if lt IE 7]>
-      <p class="browsehappy">
-        You are using an <strong>outdated</strong> browser. Please
-        <a href="#">upgrade your browser</a> to improve your experience.
-      </p>
-    <![endif]-->
+  
+    <navbar class="navbar">
+      <div class="left"><a href="../index.html">Profile</a></div>
+      <div class="nav-items">
+        <a href="../shop/index.html">Home</a>
+        <a href="../cart/index.html">My Cart</a>
+      </div>
+  </navbar>
 
-    <script src="" async defer></script>
+  <!-----------------------------------Navbar End--------------------------------------->
+
+  <section class="profile-page">
+    <div class="basic-info">
+      <div class="profile-title">My Profile</div>
+        <form id="profile-form" class="profile-form">
+          <div class="form-field first-name">
+            <input type="text" name="fname" id="fname" placeholder="First Name">
+          </div>
+          <div class="form-field last-name">
+            <input type="text" name="lname" id="lname" placeholder="Last Name">
+          </div>
+            <button id="saveInfo-form-submit-btn" class="saveInfo-form-submit-btn" type="button">Save Info</button>
+        </form>
+    </div>
+    <div class="password-change">
+      <div class="edit-password-title">Edit Password</div>
+        <form id="edit-form" class="edit-form">
+          <div class="form-field old-password">
+            <input type="password" name="oldPassword" id="old-password" placeholder="Old Password">
+          </div>
+          <div class="form-field New-password">
+            <input type="password" name="newPassword" id="new-password" placeholder="New Password">
+          </div>
+          <div class="form-field confirm-new-password">
+            <input type="password" name="confirmnewPassword" id="confirm-new-password" placeholder="Confirm New Password">
+          </div>
+          <button id="edit-password-form-submit-btn" class="edit-password-form-submit-btn change-password" type="button">Change Password</button>
+        </form>
+    </div>
+    <button id="logout-btn" class="logout-btn">Logout</button>
+  </section>
+
+    <script src="./profilescript.js" async defer></script>
   </body>
 </html>
