@@ -2,6 +2,7 @@
 
 setTimeout(() => {
     const priceRangeFilter = document.getElementById('price-range');
+    const applyFilter = document.getElementById('apply-to-filter');
 
     let priceofItems = [];
 
