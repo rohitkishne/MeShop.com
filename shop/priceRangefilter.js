@@ -78,23 +78,19 @@ setTimeout(() => {
 
         if(priceofItems.length === 0 && rating ===0)
         {
-            console.log('first')
             renderItems(data);
         }
         else if(priceofItems.length !==0 && rating === 0)
         {
-            console.log('second')
             const filterProduct = searchPriceRange(findTwoValue(priceofItems),data);
             renderItems(filterProduct)
         }
         else if(priceofItems.length === 0 && rating !== 0)
         {
-            console.log('third')
             const filterProduct = searchProductByRating(rating, data);
             renderItems(filterProduct)
         }
         else{
-            console.log('fourth')
             const filterProduct = search(findTwoValue(priceofItems),rating, data);
             renderItems(filterProduct)
         }
