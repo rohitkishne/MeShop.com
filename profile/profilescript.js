@@ -98,5 +98,5 @@ changePasswordBtn.addEventListener('click', (event) => {
 
 logoutBtn.addEventListener('click', () =>{
     sessionStorage.clear();
-    window.location.href = '../index.html'
+    window.location.href = '../shop'
 })

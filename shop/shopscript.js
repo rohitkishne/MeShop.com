@@ -15,7 +15,7 @@ const items = document.getElementById('items')
 
 //Shopping cart API URL
 const apiUrl = 'https://fakestoreapi.com/products';
-
+let data;
 
 // Randomly choose three color for each item
 const itemsColor =['red', 'blue', 'green', 'black', 'white']
@@ -50,14 +50,13 @@ function addSizeToItemData(items) {
     item.size = pickThreeRandomSize;
   })
 }
-
 // Fetch the data from the API URL
 async function fetchData() {
     try {
       const response = await fetch(apiUrl, {
         method : 'get'
       })
-      const data = await response.json();
+      data = await response.json();
 
       addColorToItemData(data);
       addSizeToItemData(data)
@@ -182,7 +181,6 @@ function renderItems(items) {
     localStorage.setItem('users', JSON.stringify(users))
     sessionStorage.setItem('loggedInUser', JSON.stringify(currentUser))
  }
-
 
     
 fetchData();

@@ -178,7 +178,7 @@ main-content .items {
 
 main-content .items .item {
   border: 1px solid black;
-  width: 30%;
+  width: 20%;
   display: flex;
   flex-direction: column;
 }
