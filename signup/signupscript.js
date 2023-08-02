@@ -1,7 +1,7 @@
 window.onload = function(){
 
     // if the user is trying to access the signup page but user is logged in
-    if(window.location.pathname=="/signup/" && sessionStorage.getItem("accessToken")){
+    if(window.location.pathname==="/signup/" && sessionStorage.getItem("accessToken")){
         window.location.href="../profile";
     }
 

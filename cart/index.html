@@ -13,11 +13,16 @@
     <navbar class="navbar">
       <div class="left"><a href="./index.html">Shopping Cart</a></div>
       <div class="right">
-        <button id="home" class="nav-btn-menu">Home</button>
+        <!-- <button id="home" class="nav-btn-menu">Home</button>
         <button id="login" class="nav-btn-menu">Login</button>
         <button id="signup" class="nav-btn-menu">Signup</button>
         <button id="mycart" class="nav-btn-menu">MyCart</button>
-        <button id="profile" class="nav-btn-menu">Profile</button>
+        <button id="profile" class="nav-btn-menu">Profile</button> -->
+        <a href="/shop">Home</a>
+        <a href="/login">Login</a>
+        <a href="/signup">Signup</a>
+        <a href="/cart">My Cart</a>
+        <a href="/profile">Profile</a>
       </div>
     </navbar>
 
@@ -25,34 +30,79 @@
     <main class="shopping-cart">
 
       <!-- *************** My Cart Section ****************** -->
-      <section class="my-cart">
+      <section id="my-cart" class="my-cart">
         <div class="shopping-cart-title">My Cart</div>
-        <div class="items">
-          <div class="item">
+        <div id="items" class="items">
+          <!-- <div class="item">
               <img src="../shop/tshirt.png" alt="Item" />
               <div class="info">
                 <div class="row">
                   <div class="item-title">Title : Shirt</div>
                   <div class="price">Price : $100</div>
                 </div>
-              <button id="remove-from-cart" class="remove-from-cart">Remove From Cart</button>
+              <button id="remove-from-cart" class="remove-from-cart" onclick="removeCartItem(event)">Remove From Cart</button>
             </div>
-          </div>
+          </div> -->
         </div>
       </section>
 
       <!-- **************** Checkout Section **************** -->
-      <section class="checkout">
+      <section id="checkout" class="checkout">
         <div class="checkout-title">Checkout List</div>
-        <div class="items-list-price">
+        <div id="items-list-price" class="items-list-price">
           <div class="item-price">
-            <span class="item-no">1. Shirt</span>
-            <span class="price">$100</span>
+            <div class="item-no-with-title">
+              <div class="item-no"></div>
+              <div class="item-title"></div>
+            </div>
+            <div class="price"></div>
+          </div>
+          <div class="item-price">
+            <div class="item-no-with-title">
+              <div class="item-no"></div>
+              <div class="item-title"></div>
+            </div>
+            <div class="price"></div>
+          </div>
+          <div class="item-price">
+            <div class="item-no-with-title">
+              <div class="item-no"></div>
+              <div class="item-title"></div>
+            </div>
+            <div class="price"></div>
+          </div>
+          <div class="item-price">
+            <div class="item-no-with-title">
+              <div class="item-no"></div>
+              <div class="item-title"></div>
+            </div>
+            <div class="price"></div>
+          </div>
+          <div class="item-price">
+            <div class="item-no-with-title">
+              <div class="item-no"></div>
+              <div class="item-title"></div>
+            </div>
+            <div class="price"></div>
+          </div>
+          <div class="item-price">
+            <div class="item-no-with-title">
+              <div class="item-no"></div>
+              <div class="item-title"></div>
+            </div>
+            <div class="price"></div>
+          </div>
+          <div class="item-price">
+            <div class="item-no-with-title">
+              <div class="item-no"></div>
+              <div class="item-title"></div>
+            </div>
+            <div class="price"></div>
           </div>
         </div>
         <div class="item-total-price">
           <span class="total">Total</span>
-          <span class="total-price">$900</span>
+          <span class="total-price">$0</span>
         </div>
         <div class="click-to-checkout-btn">
           <button id="checkout-btn" class="checkout-btn">Click To Checkout</button>

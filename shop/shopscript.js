@@ -180,7 +180,7 @@ function renderItems(items) {
     currentUser.userCart = myCart;
 
     localStorage.setItem('users', JSON.stringify(users))
-    sessionStorage.setItem('loggedInUser', JSON.stringify(users))
+    sessionStorage.setItem('loggedInUser', JSON.stringify(currentUser))
  }
 
 

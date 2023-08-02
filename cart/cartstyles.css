@@ -23,20 +23,24 @@
     font-size: 2em;
 }
 
-.left a{
+.left a, .right a{
     text-decoration: none;
     color: white;
 }
 
 .right{
-    width: 30%;
+    width: 35%;
     height: 4em;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.nav-btn-menu{
+.right a{
+    margin: 0 1rem;
+}
+
+/* .nav-btn-menu{
     width: 20%;
     height: 3em;
     box-sizing: border-box;
@@ -46,7 +50,7 @@
     background: black;
     color: white;
     cursor: pointer;
-}
+} */
 
 /* -------------------------------- Navbar end----------------------------------------------------- */
 
@@ -61,7 +65,7 @@
 
 .shopping-cart .my-cart{
     width: 70%;
-    height: 87vh;
+    height: 84vh;
     display: flex;
     flex-direction: column;
     gap: 2em;
@@ -76,12 +80,11 @@
 
 .items{
     display: grid;
-    grid-template-columns: repeat(4, 24%);
+    grid-template-columns: repeat(3, 30%);
     gap: 1em;
     overflow-y: auto;
     padding-bottom: 1.5em;
     padding-left: 3em;
-    justify-content: end;
 }
 
 .items::-webkit-scrollbar{
@@ -89,11 +92,10 @@
 }
 
 .items .item {
-    border: 1px solid black;
-    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1em;
+    border: 1px solid black;
   }
 
 .items .item img {
@@ -111,7 +113,18 @@
     display: flex;
     flex-direction: column;
     gap: 0.5em;
-    padding-left: 0.5em;
+    padding: 0em 0.5em;
+    width: 100%;
+    height: 5em;
+}
+
+.info .row .item-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: 1.45;
+    text-align: justify;
 }
 
 .info .remove-from-cart{
@@ -152,7 +165,7 @@
 .checkout .items-list-price{
     display: flex;
     flex-direction: column;
-    gap: 0.5em;
+    gap: 1em;
     border-bottom: 1px solid white;
     padding: 1em;
 }
@@ -160,13 +173,37 @@
 .checkout .items-list-price .item-price{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+
+.item-price .item-no-with-title{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    width: 70%;
+    text-align: justify;
+}
+
+.item-price .item-no-with-title .item-no{
+    width: 5%;
+}
+
+.item-price .item-no-with-title .item-title{
+    width: 90%;
+}
+
+.item-price .price{
+    width: 25%;
+    display: flex;
+    justify-content: center;
 }
 
 .checkout .item-total-price{
     display: flex;
     justify-content: space-between;
-    padding: 0.5em;
+    padding: 0.5em 2em;
     border-bottom: 1px solid white;
+    font-size: 1.1em;
 }
 
 .checkout .click-to-checkout-btn{
@@ -188,4 +225,17 @@
     cursor: pointer;
     font-size: 1em;
     border-radius: 1px;
+}
+
+/* **************************checkout End ********************************** */
+
+.error-during-fetching{
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: 600;
+    color: red;
 }
