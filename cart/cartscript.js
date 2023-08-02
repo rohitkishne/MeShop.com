@@ -5,7 +5,6 @@ window.onload = function(){
         window.location.href = '../login'
     }
 
-    const checkoutBtn = document.getElementById('checkout-btn')
     const items = document.getElementById('items')
     const myCart = document.getElementById('my-cart')
     const itemsListPrice = document.getElementById('items-list-price')
@@ -153,25 +152,40 @@ window.onload = function(){
                                             </div>
                                             <div class="price">$${cartItem.price}</div>
                                         </div>
-                                        `
+                                         `
         })
         checkout.appendChild(itemsListPrice);
         checkout.innerHTML += ` <div class="item-total-price">
                                     <span class="total">Total</span>
                                     <span class="total-price">$${totalPrice.toFixed(2)}</span>
                                 </div>
-                                <div class="click-to-checkout-btn">
-                                    <button id="checkout-btn" class="checkout-btn">Click To Checkout</button>
-                                </div>
-                                    `
+                                `
+        const cartCheckoutBtnDiv = document.createElement('div')
+        cartCheckoutBtnDiv.setAttribute('class','click-to-checkout-btn')
+        const cartBtnForCheckout = document.createElement('button')
+        cartBtnForCheckout.setAttribute('id','checkout-btn')
+        cartBtnForCheckout.setAttribute('class','checkout-btn')
+        cartBtnForCheckout.innerText = 'Click To Checkout'
+        cartCheckoutBtnDiv.appendChild(cartBtnForCheckout);
+        checkout.appendChild(cartCheckoutBtnDiv);
+
+        cartBtnForCheckout.addEventListener('click', (e) => paymentThroughRazorpay(e))
 
     }
 
 
     // Redirect to razoray for transaction when i click on checkout button
-    checkoutBtn.addEventListener('click', () => {
+    
+    // checkoutBtn.addEventListener('click', () => {
+    //     console.log('clicked')
+    //     sessionStorage.setItem('TotalAmount', JSON.stringify(totalPrice))
+    //     location.href = '../razorpay'
+    // })
+
+    function paymentThroughRazorpay(e) {
+        sessionStorage.setItem('TotalAmount', JSON.stringify(totalPrice))
         location.href = '../razorpay'
-    })
+    }
 
 
     fetchData();
