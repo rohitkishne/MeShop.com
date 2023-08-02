@@ -53,14 +53,21 @@ window.onload = function(){
         // console.log(myProductForCheckout)
         if(myProductForCheckout.length === 0)
         {
+            //When user Cart is empty then it shows no item found for empty cart
             items.remove();
             const fetchError = document.createElement('div');
             fetchError.setAttribute('class','error-during-fetching')
             fetchError.innerText = 'No Items Founds!'
             myCart.appendChild(fetchError);
+
+            //when cart is empty so in checkout it also show that there is no item for checkout
+            const messageWhenCartEmpty = document.createElement('div')
+            messageWhenCartEmpty.setAttribute('class', 'messageWhenCartEmpty')
+            messageWhenCartEmpty.innerText = 'No Item in Cart'
+            itemsListPrice.appendChild(messageWhenCartEmpty);
         }
         else{
-            if(myProductForCheckout.length <= 3)
+            if(myProductForCheckout.length <= 3 && myProductForCheckout.length > 0)
             {
                 itemsListPrice.style.height = '15em'
             }
@@ -85,8 +92,7 @@ window.onload = function(){
             //                             <button id="remove-from-cart-${productItem.id}" class="remove-from-cart"     onclick='removeCartItem(event)'>Remove From Cart</button>
             //                         </div>
             //                     </div>`
-            //                     const removeButton = itemElement.querySelector(`#remove-from-cart-${productItem.id}`);
-            //                     removeButton.addEventListener('click', () => removeCartItem(productItem.id));
+
             totalPrice += productItem.price
             const itemElement = document.createElement('div');
             itemElement.id = productItem.id;
@@ -143,6 +149,7 @@ window.onload = function(){
     function renderAllPaymentDescForCheckout(cartProduct) {
         checkout.innerHTML = '';
         checkout.innerHTML += `<div class="checkout-title">Checkout List</div>`
+
         itemsListPrice.innerHTML = '';
         cartProduct.map(cartItem =>{
             itemsListPrice.innerHTML += `<div class="item-price">
@@ -154,6 +161,7 @@ window.onload = function(){
                                         </div>
                                          `
         })
+       
         checkout.appendChild(itemsListPrice);
         checkout.innerHTML += ` <div class="item-total-price">
                                     <span class="total">Total</span>
