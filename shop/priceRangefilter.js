@@ -2,8 +2,9 @@
 
 setTimeout(() => {
     const itemColor = document.getElementById('item-color');
+    const itemSize = document.getElementById('item-size');
     const priceRangeFilter = document.getElementById('price-range');
-    const ratingFilter = document.getElementById('range')
+    const ratingFilter = document.getElementById('range');
     const applyFilter = document.getElementById('apply-to-filter');
 
     //color Filter ---------------------------------->
@@ -27,6 +28,28 @@ setTimeout(() => {
 
         } catch (error) {
             console.log("Error : ", error);
+        }
+    })
+
+    //Size Filter ------------------------------------->
+    let productSize = [];
+
+    itemSize.addEventListener('change', (event) => {
+        try {
+            const sizeId = event.target.id;
+
+            if(event.target.checked)
+            {
+                productSize.push(sizeId);
+            }
+            else
+            {
+                let sizePos = productSize.indexOf(sizeId)
+                productSize.splice(sizePos,1)
+            }
+
+        } catch (error) {
+            console.log("Error : ", error)
         }
     })
 
@@ -91,6 +114,8 @@ setTimeout(() => {
         }
     })
 
+    // ******************************************* Apply Filter ******************************************** 
+
     //whenever i click on the apply filter button, each and every filter will apply to shop and shows a result
     //if we dont apply a button, by default result will be display as usual
 
@@ -101,7 +126,7 @@ setTimeout(() => {
         mensItem.innerHTML = ``;
         womensItem.innerHTML = ``;
 
-        if(priceofItems.length === 0 && rating ===0 && productColor.length === 0)
+        if(priceofItems.length === 0 && rating ===0 && productColor.length === 0 && productSize.length === 0)
         {
             renderItems(data);
         }
@@ -120,27 +145,69 @@ setTimeout(() => {
             const filterProduct = searchByColor(productColor, data);
             renderItems(filterProduct)
         }
-        else if(priceofItems.length !== 0 && rating !==0 && productColor.length === 0){
+        else if(priceofItems.length === 0 && rating ===0 && productColor.length === 0 && productSize.length !== 0)
+        {
+            const filterProduct = searchBySize(productSize, data);
+            renderItems(filterProduct)
+        }
+
+        else if(priceofItems.length !== 0 && rating !==0 && productColor.length === 0 && productSize.length === 0){
             const filterProduct = searchByPriceAndRating(findTwoValue(priceofItems),rating, data);
             renderItems(filterProduct)
         }
-        else if(priceofItems.length !== 0 && rating === 0 && productColor.length !== 0)
+        else if(priceofItems.length !== 0 && rating === 0 && productColor.length !== 0 && productSize.length === 0)
         {
             const filterProduct = searchByPriceAndColor(findTwoValue(priceofItems),productColor, data);
             renderItems(filterProduct)
         }
-        else if(priceofItems.length === 0 && rating !==0 && productColor.length !== 0)
+        else if(priceofItems.length !== 0 && rating === 0 && productColor.length === 0 && productSize.length !== 0)
+        {
+            const filterProduct = searchByPriceAndSize(findTwoValue(priceofItems),productSize, data);
+            renderItems(filterProduct)
+        }
+        else if(priceofItems.length === 0 && rating !==0 && productColor.length !== 0 && productSize.length === 0)
         {
             const filterProduct = searchByColorAndRating(productColor,rating, data);
             renderItems(filterProduct)
         }
-        else{
-            const filterProduct = search(findTwoValue(priceofItems),productColor,rating, data);
+        else if(priceofItems.length === 0 && rating !==0 && productColor.length === 0 && productSize.length !== 0)
+        {
+            const filterProduct = searchByRatingAndSize(rating, productSize, data);
+            renderItems(filterProduct)
+        }
+        else if(priceofItems.length === 0 && rating ===0 && productColor.length !== 0 && productSize.length !== 0)
+        {
+            const filterProduct = searchByColorAndSize(productColor, productSize, data);
+            renderItems(filterProduct)
+        }
+        else if(priceofItems.length !== 0 && rating !==0 && productColor.length !== 0 && productSize.length === 0){
+            const filterProduct = searchByPriceAndRatingAndColor(findTwoValue(priceofItems),productColor,rating, data);
+            renderItems(filterProduct)
+        }
+        else if(priceofItems.length !== 0 && rating !==0 && productColor.length === 0 && productSize.length !== 0)
+        {
+            const filterProduct = searchByPriceAndRatingAndSize(findTwoValue(priceofItems),productSize,rating, data);
             renderItems(filterProduct)
         }   
+        else if(priceofItems.length !== 0 && rating ===0 && productColor.length !== 0 && productSize.length !== 0)
+        {
+            const filterProduct = searchByPriceAndSizeAndColor(findTwoValue(priceofItems),productSize,productColor, data);
+            renderItems(filterProduct)
+        }
+        else if(priceofItems.length === 0 && rating !==0 && productColor.length !== 0 && productSize.length !== 0)
+        {
+            const filterProduct = searchByRatingAndSizeAndColor(rating,productSize,productColor, data);
+            renderItems(filterProduct)
+        }
+        else{
+            // **********
+            const filterProduct = search(findTwoValue(priceofItems), rating, productColor, productSize, data);
+            renderItems(filterProduct)
+        }
         
     })  
 
+    // ******************************** Single filter ************************************
     //Search and filter the product based on porduct color only
     function searchByColor(colors, products) {
         return products.filter((product) => {
@@ -150,6 +217,12 @@ setTimeout(() => {
         })
     }
 
+    //Search and filter the product based on porduct size only
+    function searchBySize(size, products) {
+        return products.filter((product) => {
+            return size.includes(product.size[0].toLowerCase());
+        })
+    }
 
     //Search and filter the product based on price range only
     function searchPriceRange(range, products) {
@@ -165,6 +238,7 @@ setTimeout(() => {
         })
     }
 
+    // ************************************ Double Filter *********************************
     //Search and filter the product based on both price range and ratings
     function searchByPriceAndRating(range, rating, products) {
         return products.filter((product) => {
@@ -195,8 +269,34 @@ setTimeout(() => {
         })
     }
 
+    //Search and filter the product based on both price range and size
+    function searchByPriceAndSize(range, size, products) {
+        return products.filter((product) => {
+            return (product.price >=range[0] && product.price<=range[1]) && size.includes(product.size[0].toLowerCase());
+        })
+    }
+
+    //Search and filter the product based on both size and ratings
+    function searchByRatingAndSize(rating, size, products) {
+        return products.filter((product) => {
+            return size.includes(product.size[0].toLowerCase()) && product.rating.rate >=rating;
+        })
+    }
+
+    //Search and filter the product based on both color and size
+    function searchByColorAndSize(colors, size, products) {
+        return products.filter((product) => {
+            return (
+                    colors.includes(product.color[0]) || 
+                    colors.includes(product.color[1]) ||
+                    colors.includes(product.color[2])
+                ) && size.includes(product.size[0].toLowerCase());
+        })
+    }
+
+    // ********************************** Three Filter ****************************************
     //Search and filter the product based on all price range, rating, and color
-    function search(range, colors,rating, products) {
+    function searchByPriceAndRatingAndColor(range, colors,rating, products) {
         return products.filter((product) => {
             return (product.price >=range[0] && product.price<=range[1]) && 
                     (
@@ -204,6 +304,55 @@ setTimeout(() => {
                         colors.includes(product.color[1]) ||
                         colors.includes(product.color[2])
                     ) && product.rating.rate >=rating;
+        })
+    }
+
+     //Search and filter the product based on all price range, rating, and size
+     function searchByPriceAndRatingAndSize(range, size,rating, products) {
+        return products.filter((product) => {
+            return (product.price >=range[0] && product.price<=range[1]) && 
+            size.includes(product.size[0].toLowerCase()) && product.rating.rate >=rating;
+        })
+    }
+
+    //Search and filter the product based on all price range, color, and size
+    function searchByPriceAndSizeAndColor(range, size,colors, products) {
+        return products.filter((product) => {
+            return (product.price >=range[0] && product.price<=range[1]) && 
+            size.includes(product.size[0].toLowerCase()) && 
+            (
+                colors.includes(product.color[0]) || 
+                colors.includes(product.color[1]) ||
+                colors.includes(product.color[2])
+            ) ;
+        })
+    }
+
+    //Search and filter the product based on all rating, color, and size
+    function searchByRatingAndSizeAndColor(rating, size,colors, products) {
+        return products.filter((product) => {
+            return product.rating.rate >=rating && 
+            size.includes(product.size[0].toLowerCase()) && 
+            (
+                colors.includes(product.color[0]) || 
+                colors.includes(product.color[1]) ||
+                colors.includes(product.color[2])
+            ) ;
+        })
+    }
+
+    // ********************************** All Filter ****************************************
+    //Search and filter the product based on all price, rating, color, and size
+    function search(range, rating, colors, size, products) {
+        return products.filter((product) => {
+            return (product.price >=range[0] && product.price<=range[1]) &&
+                product.rating.rate >=rating && 
+                size.includes(product.size[0].toLowerCase()) && 
+                (
+                    colors.includes(product.color[0]) || 
+                    colors.includes(product.color[1]) ||
+                    colors.includes(product.color[2])
+                ) ;
         })
     }
 
