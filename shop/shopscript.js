@@ -101,6 +101,8 @@ function chooseColor(colorName) {
 
 // Rendering the data on to the UI
 function renderItems(items) {
+        mensItem.innerHTML = ``;
+        womensItem.innerHTML = ``;
         items.map(item => {
           if(item.category === "men's clothing")
           {

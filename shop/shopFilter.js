@@ -123,9 +123,6 @@ setTimeout(() => {
         event.stopPropagation();
         event.preventDefault();
 
-        mensItem.innerHTML = ``;
-        womensItem.innerHTML = ``;
-
         if(priceofItems.length === 0 && rating ===0 && productColor.length === 0 && productSize.length === 0)
         {
             renderItems(data);
