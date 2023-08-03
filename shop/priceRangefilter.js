@@ -196,7 +196,7 @@ setTimeout(() => {
     }
 
     //Search and filter the product based on all price range, rating, and color
-    function searchByPriceAndColor(range, colors,rating, products) {
+    function search(range, colors,rating, products) {
         return products.filter((product) => {
             return (product.price >=range[0] && product.price<=range[1]) && 
                     (
