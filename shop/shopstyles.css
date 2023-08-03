@@ -176,6 +176,10 @@ main-content .items {
   gap: 1rem;
 }
 
+.items::-webkit-scrollbar{
+  display: none;
+}
+
 main-content .items .item {
   border: 1px solid black;
   width: 20%;

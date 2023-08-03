@@ -11,6 +11,8 @@
 
 const mensItem = document.getElementById('mens-items')
 const womensItem = document.getElementById('womens-items')
+const jwelleryItem = document.getElementById('jewellery-items');
+const electronicsItem = document.getElementById('electronics-items');
 const items = document.getElementById('items')
 
 //Shopping cart API URL
@@ -103,6 +105,8 @@ function chooseColor(colorName) {
 function renderItems(items) {
         mensItem.innerHTML = ``;
         womensItem.innerHTML = ``;
+        jwelleryItem.innerHTML = ``;
+        electronicsItem.innerHTML = ``;
         items.map(item => {
           if(item.category === "men's clothing")
           {
@@ -147,6 +151,49 @@ function renderItems(items) {
                                         <button id="cartaddBtn-${item.id}" onclick="addToCart(event)">Add to Cart</button>
                                       </div>`
           }
+          else if(item.category === "jewelery")
+          {
+            jwelleryItem.innerHTML += `<div id='${item.id}' class="item">
+                                        <img src="${item.image}" alt="Item" />
+                                        <div class="info">
+                                          <div class="row">
+                                            <div class="price">$${item.price}</div>
+                                          </div>
+                                          <div class="colors">
+                                            Colors:
+                                            <div class="row">
+                                              <div class="circle" style="${chooseColor(item.color[0])}"></div>
+                                              <div class="circle" style="${chooseColor(item.color[1])}"></div>
+                                              <div class="circle" style="${chooseColor(item.color[2])}"></div>
+                                            </div>
+                                          </div>
+                                          <div class="row">Rating: ${item.rating.rate}</div>
+                                        </div>
+                                        <button id="cartaddBtn-${item.id}" onclick="addToCart(event)">Add to Cart</button>
+                                      </div>`
+          }
+          else if(item.category === "electronics")
+          {
+            electronicsItem.innerHTML += `<div id='${item.id}' class="item">
+                                        <img src="${item.image}" alt="Item" />
+                                        <div class="info">
+                                          <div class="row">
+                                            <div class="price">$${item.price}</div>
+                                          </div>
+                                          <div class="colors">
+                                            Colors:
+                                            <div class="row">
+                                              <div class="circle" style="${chooseColor(item.color[0])}"></div>
+                                              <div class="circle" style="${chooseColor(item.color[1])}"></div>
+                                              <div class="circle" style="${chooseColor(item.color[2])}"></div>
+                                            </div>
+                                          </div>
+                                          <div class="row">Rating: ${item.rating.rate}</div>
+                                        </div>
+                                        <button id="cartaddBtn-${item.id}" onclick="addToCart(event)">Add to Cart</button>
+                                      </div>`
+          }
+          
         })
 }
 
