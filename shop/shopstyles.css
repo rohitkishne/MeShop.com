@@ -163,7 +163,7 @@ main-content section {
   margin-top: 1.2rem;
 }
 
-main-content section title {
+main-content .product-items title {
   display: block;
   font-size: 1.5rem;
 }
