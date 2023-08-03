@@ -130,7 +130,7 @@ setTimeout(() => {
         else if(priceofItems.length !==0 && rating === 0 && productColor.length === 0)
         {
             const filterProduct = searchPriceRange(findTwoValue(priceofItems),data);
-            renderItems(filterProduct)
+            renderItems(filterProduct)  
         }
         else if(priceofItems.length === 0 && rating !== 0 && productColor.length === 0)
         {

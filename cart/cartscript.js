@@ -60,10 +60,7 @@ function createMyCartItem(products) {
     myCart.appendChild(fetchError);
 
     //when cart is empty so in checkout it also show that there is no item for checkout
-    const messageWhenCartEmpty = document.createElement("div");
-    messageWhenCartEmpty.setAttribute("class", "messageWhenCartEmpty");
-    messageWhenCartEmpty.innerText = "No Item in Cart";
-    itemsListPrice.appendChild(messageWhenCartEmpty);
+    renderAllPaymentDescForCheckout(myProductForCheckout);
   } else {
     if (myProductForCheckout.length <= 3 && myProductForCheckout.length > 0) {
       itemsListPrice.style.height = "15em";
@@ -150,16 +147,25 @@ function renderAllPaymentDescForCheckout(cartProduct) {
   checkout.innerHTML += `<div class="checkout-title">Checkout List</div>`;
 
   itemsListPrice.innerHTML = "";
-  cartProduct.map((cartItem) => {
-    itemsListPrice.innerHTML += `<div class="item-price">
-                                            <div class="item-no-with-title">
-                                            <div class="item-no">1.</div>
-                                            <div class="item-title">${cartItem.title}</div>
-                                            </div>
-                                            <div class="price">$${cartItem.price}</div>
-                                        </div>
-                                         `;
-  });
+  if(cartProduct.length !== 0)
+  {
+    cartProduct.map((cartItem) => {
+      itemsListPrice.innerHTML += `<div class="item-price">
+                                              <div class="item-no-with-title">
+                                              <div class="item-no">1.</div>
+                                              <div class="item-title">${cartItem.title}</div>
+                                              </div>
+                                              <div class="price">$${cartItem.price}</div>
+                                          </div>
+                                          `;
+    });
+  }
+  else{
+    const messageWhenCartEmpty = document.createElement("div");
+    messageWhenCartEmpty.setAttribute("class", "messageWhenCartEmpty");
+    messageWhenCartEmpty.innerText = "No Item in Cart";
+    itemsListPrice.appendChild(messageWhenCartEmpty);
+  }
 
   checkout.appendChild(itemsListPrice);
   checkout.innerHTML += ` <div class="item-total-price">
